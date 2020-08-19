@@ -21,8 +21,14 @@
             "polyfills": "apps/cz-app/src/polyfills.ts",
             "tsConfig": "apps/cz-app/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/cz-app/src/favicon.ico", "apps/cz-app/src/assets"],
-            "styles": ["apps/cz-app/src/styles.scss"],
+            "assets": [
+              "apps/cz-app/src/favicon.ico",
+              "apps/cz-app/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "apps/cz-app/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -80,7 +86,10 @@
               "apps/cz-app/tsconfig.app.json",
               "apps/cz-app/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/cz-app/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/cz-app/**/*"
+            ]
           }
         },
         "test": {
@@ -115,8 +124,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/cz-app-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/cz-app-e2e/**/*"]
+            "tsConfig": [
+              "apps/cz-app-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/cz-app-e2e/**/*"
+            ]
           }
         }
       }
