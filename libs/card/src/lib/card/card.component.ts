@@ -1,16 +1,27 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
 
 @Component({
   selector: 'mf-app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardComponent implements OnInit {
+  @Input()
+  title: String;
 
-  constructor() { }
+  @Input()
+  subtitle: String;
 
-  ngOnInit(): void {
-  }
+  @Input()
+  description: String;
 
+  constructor() {}
+
+  ngOnInit(): void {}
 }
