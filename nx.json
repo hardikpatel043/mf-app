@@ -28,6 +28,9 @@
     "cz-app-e2e": {
       "tags": [],
       "implicitDependencies": ["cz-app"]
+    },
+    "card": {
+      "tags": []
     }
   }
 }
