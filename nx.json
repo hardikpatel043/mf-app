@@ -38,6 +38,13 @@
     "home-e2e": {
       "tags": [],
       "implicitDependencies": ["home"]
+    },
+    "aboutus": {
+      "tags": []
+    },
+    "aboutus-e2e": {
+      "tags": [],
+      "implicitDependencies": ["aboutus"]
     }
   }
 }
