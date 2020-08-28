@@ -8,6 +8,8 @@
     "nx": "nx",
     "start": "ng serve",
     "build": "ng build --prod --stats-json",
+    "build-home": "ng build --project=home --prod --stats-json",
+    "build-aboutus": "ng build --project=aboutus --prod --stats-json",
     "analyze": "webpack-bundle-analyzer dist/apps/cz-app/stats.json",
     "test": "ng test",
     "lint": "nx workspace-lint && ng lint",
