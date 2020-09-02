@@ -21,12 +21,31 @@
             "polyfills": "apps/cz-app/src/polyfills.ts",
             "tsConfig": "apps/cz-app/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/cz-app/src/favicon.ico", "apps/cz-app/src/assets"],
+            "assets": [
+              "apps/cz-app/src/favicon.ico",
+              "apps/cz-app/src/assets",
+              {
+                "glob": "**/*",
+                "input": "apps/cz-app/src/home",
+                "output": "/home"
+              }
+            ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "apps/cz-app/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/@webcomponents/custom-elements/src/native-shim.js",
+              "node_modules/rxjs/bundles/rxjs.umd.js",
+              "node_modules/@angular/core/bundles/core.umd.js",
+              "node_modules/@angular/common/bundles/common.umd.js",
+              "node_modules/@angular/common/bundles/common-http.umd.js",
+              "node_modules/@angular/compiler/bundles/compiler.umd.js",
+              "node_modules/@angular/elements/bundles/elements.umd.js",
+              "node_modules/@angular/router/bundles/router.umd.js",
+              "node_modules/@angular/platform-browser/bundles/platform-browser.umd.js",
+              "node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -168,7 +187,7 @@
       "prefix": "mf-app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "ngx-build-plus:browser",
           "options": {
             "outputPath": "dist/apps/home",
             "index": "apps/home/src/index.html",
@@ -181,7 +200,16 @@
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "apps/home/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              {
+                "bundleName": "polyfill-webcomp-es5",
+                "input": "node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js"
+              },
+              {
+                "bundleName": "polyfill-webcomp",
+                "input": "node_modules/@webcomponents/webcomponentsjs/bundles/webcomponents-sd-ce-pf.js"
+              }
+            ]
           },
           "configurations": {
             "production": {
@@ -215,7 +243,7 @@
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "options": {
             "browserTarget": "home:build"
           },
@@ -242,7 +270,7 @@
           }
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
+          "builder": "ngx-build-plus:karma",
           "options": {
             "jestConfig": "apps/home/jest.config.js",
             "tsConfig": "apps/home/tsconfig.spec.json",

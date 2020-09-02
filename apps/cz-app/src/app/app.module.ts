@@ -5,17 +5,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ContentComponent } from './components/content/content.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MaterialModule } from './material.module';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import {
+  LazyElementsModule,
+  LazyElementsLoaderService,
+} from '@angular-extensions/elements';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, ContentComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
     MaterialModule,
+    LazyElementsModule,
   ],
-  providers: [],
+  providers: [LazyElementsLoaderService],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

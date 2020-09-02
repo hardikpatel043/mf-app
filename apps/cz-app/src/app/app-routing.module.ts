@@ -4,11 +4,6 @@ import { NgModule } from '@angular/core';
 
 const routes: Routes = [
   {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: '/home',
-  },
-  {
     path: 'home',
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
@@ -21,6 +16,11 @@ const routes: Routes = [
     path: 'contactus',
     loadChildren: () =>
       import('./contactus/contactus.module').then((m) => m.ContactusModule),
+  },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'home',
   },
 ];
 
