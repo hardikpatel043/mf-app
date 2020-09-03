@@ -7,6 +7,7 @@
     "postinstall": "ngcc",
     "nx": "nx",
     "start": "ng serve",
+    "start:external": "ng serve --extra-webpack-config apps/home/webpack.externals.js",
     "build": "ng build --prod --stats-json",
     "build:external": "ng build --extra-webpack-config apps/home/webpack.externals.js --prod --stats-json",
     "build-home": "ng build --project=home --prod --stats-json",
@@ -33,6 +34,7 @@
     "help": "nx help",
     "postinstall:bak": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
     "build:home:externals": "ng build --extra-webpack-config apps/home/webpack.externals.js --output-hashing none --project home --prod --single-bundle --stats-json",
+    "build:aboutus:externals": "ng build --extra-webpack-config apps/aboutus/webpack.externals.js --output-hashing none --project aboutus --prod --single-bundle --stats-json",
     "build:home": "ng build --prod --project home --output-hashing none --single-bundle true --bundle-styles false"
   },
   "private": true,

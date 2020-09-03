@@ -13,7 +13,7 @@
       "prefix": "mf-app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "ngx-build-plus:browser",
           "options": {
             "outputPath": "dist/apps/cz-app",
             "index": "apps/cz-app/src/index.html",
@@ -28,6 +28,11 @@
                 "glob": "**/*",
                 "input": "apps/cz-app/src/home",
                 "output": "/home"
+              },
+              {
+                "glob": "**/*",
+                "input": "apps/cz-app/src/aboutus",
+                "output": "/aboutus"
               }
             ],
             "styles": [
@@ -79,7 +84,7 @@
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "options": {
             "browserTarget": "cz-app:build"
           },
@@ -319,7 +324,7 @@
       "prefix": "mf-app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "ngx-build-plus:browser",
           "options": {
             "outputPath": "dist/apps/aboutus",
             "index": "apps/aboutus/src/index.html",
@@ -331,8 +336,20 @@
               "apps/aboutus/src/favicon.ico",
               "apps/aboutus/src/assets"
             ],
-            "styles": ["apps/aboutus/src/styles.scss"],
-            "scripts": []
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "apps/aboutus/src/styles.scss"
+            ],
+            "scripts": [
+              {
+                "bundleName": "polyfill-webcomp-es5",
+                "input": "node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js"
+              },
+              {
+                "bundleName": "polyfill-webcomp",
+                "input": "node_modules/@webcomponents/webcomponentsjs/bundles/webcomponents-sd-ce-pf.js"
+              }
+            ]
           },
           "configurations": {
             "production": {
@@ -366,7 +383,7 @@
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "options": {
             "browserTarget": "aboutus:build"
           },
