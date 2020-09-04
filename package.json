@@ -53,6 +53,7 @@
     "@angular/platform-browser-dynamic": "^10.0.0",
     "@angular/router": "^10.0.0",
     "@nrwl/angular": "10.0.12",
+    "@nrwl/nx-cloud": "^10.0.0",
     "@webcomponents/custom-elements": "^1.4.2",
     "@webcomponents/webcomponentsjs": "^2.4.4",
     "ngx-build-plus": "^10.1.1",
