@@ -19,7 +19,7 @@
       "options": {
         "accessToken": "YzU2YTk4YzktMzcwMy00MzVmLTk4OWYtMmI2Zjk4YThjZjNlfHJlYWQtd3JpdGU=",
         "cacheableOperations": ["build", "test", "lint", "e2e"],
-        "canTrackAnalytics": true,
+        "canTrackAnalytics": false,
         "showUsageWarnings": true
       }
     }
