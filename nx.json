@@ -18,13 +18,8 @@
       "runner": "@nrwl/nx-cloud",
       "options": {
         "accessToken": "YzU2YTk4YzktMzcwMy00MzVmLTk4OWYtMmI2Zjk4YThjZjNlfHJlYWQtd3JpdGU=",
-        "cacheableOperations": [
-          "build",
-          "test",
-          "lint",
-          "e2e"
-        ],
-        "canTrackAnalytics": false,
+        "cacheableOperations": ["build", "test", "lint", "e2e"],
+        "canTrackAnalytics": true,
         "showUsageWarnings": true
       }
     }
@@ -35,9 +30,7 @@
     },
     "cz-app-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "cz-app"
-      ]
+      "implicitDependencies": ["cz-app"]
     },
     "card": {
       "tags": []
@@ -47,18 +40,14 @@
     },
     "home-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "home"
-      ]
+      "implicitDependencies": ["home"]
     },
     "aboutus": {
       "tags": []
     },
     "aboutus-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "aboutus"
-      ]
+      "implicitDependencies": ["aboutus"]
     }
   }
 }
