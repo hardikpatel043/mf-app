@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
 export class AppComponent implements OnInit, OnDestroy {
   mediaSub: Subscription;
   deviceXs: boolean;
-
+  newVar = 'hardik';
   constructor(public mediaObserver: MediaObserver) {}
   ngOnInit() {
     this.mediaSub = this.mediaObserver.media$.subscribe((res: MediaChange) => {
