@@ -1,5 +1,5 @@
 <mat-form-field>
-  <mat-label>Your Team</mat-label>
+  <mat-label>Select Control</mat-label>
   <mat-select
     [(value)]="selectedItem"
     (selectionChange)="selectionChange($event)"
@@ -9,7 +9,7 @@
     </mat-option>
   </mat-select>
 </mat-form-field>
-<h3>Your Team is: {{ selectedItem }}</h3>
+<h3>Selected Control is: {{ selectedItem }}</h3>
 <ng-container #vc></ng-container>
 <div *ngIf="isLoading">loading...</div>
 <ng-template #tpl>
