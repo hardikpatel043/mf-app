@@ -1,12 +1,21 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+  TemplateRef,
+  ViewChild,
+  ViewContainerRef,
+  ViewRef,
+} from '@angular/core';
 
 @Component({
   selector: 'mf-app-contactus',
   templateUrl: './contactus.component.html',
   styleUrls: ['./contactus.component.css'],
 })
-export class ContactusComponent implements OnInit {
-  selectedItem = 'Aboutus';
+export class ContactusComponent implements OnInit, AfterViewInit {
+  selectedItem = '';
   controls: any[] = [{ name: 'Home' }, { name: 'Aboutus' }];
   selectedConfig = {
     tag: 'mf-aboutus',
@@ -31,18 +40,41 @@ export class ContactusComponent implements OnInit {
       actionName: 'increment',
     },
   ];
-
+  loadme = true;
+  @ViewChild('vc', { read: ViewContainerRef }) vc: ViewContainerRef;
+  @ViewChild('tpl', { read: TemplateRef }) tpl: TemplateRef<any>;
+  childViewRef: ViewRef;
+  isLoading = false;
   constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {}
 
+  ngAfterViewInit() {
+    this.childViewRef = this.tpl.createEmbeddedView(null);
+  }
+
+  insertChildView() {
+    this.vc.insert(this.childViewRef);
+  }
+
+  removeChildView() {
+    this.vc.detach();
+  }
+
   selectionChange($event) {
     if (this.selectedItem === 'Aboutus') {
-      this.selectedConfig = Object.assign(this.dynamicConfigs[0]);
+      console.log('aboutus');
+      this.selectedConfig = this.dynamicConfigs[0];
     } else {
-      this.selectedConfig = Object.assign(this.dynamicConfigs[1]);
+      console.log('home');
+      this.selectedConfig = this.dynamicConfigs[1];
     }
-    console.log(this.selectedItem);
-    console.log(this.selectedConfig);
+    this.removeChildView();
+
+    this.isLoading = true;
+    setTimeout(() => {
+      this.insertChildView();
+      this.isLoading = false;
+    }, 3000);
   }
 }

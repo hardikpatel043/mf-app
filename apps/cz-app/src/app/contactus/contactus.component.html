@@ -10,13 +10,17 @@
   </mat-select>
 </mat-form-field>
 <h3>Your Team is: {{ selectedItem }}</h3>
-<ax-lazy-element
-  *axLazyElementDynamic="
-    selectedConfig.tag;
-    url: selectedConfig.url;
-    module: selectedConfig.isModule
-  "
-  raised
->
-  {{ selectedConfig.content }}
-</ax-lazy-element>
+<ng-container #vc></ng-container>
+<div *ngIf="isLoading">loading...</div>
+<ng-template #tpl>
+  <ax-lazy-element
+    *axLazyElementDynamic="
+      selectedConfig.tag;
+      url: selectedConfig.url;
+      module: selectedConfig.isModule
+    "
+    raised
+  >
+    {{ selectedConfig.content }}
+  </ax-lazy-element>
+</ng-template>
