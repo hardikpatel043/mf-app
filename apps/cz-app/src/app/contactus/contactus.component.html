@@ -1,1 +1,22 @@
-<p>contactus works!</p>
+<mat-form-field>
+  <mat-label>Your Team</mat-label>
+  <mat-select
+    [(value)]="selectedItem"
+    (selectionChange)="selectionChange($event)"
+  >
+    <mat-option *ngFor="let control of controls" [value]="control.name">
+      {{ control.name }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<h3>Your Team is: {{ selectedItem }}</h3>
+<ax-lazy-element
+  *axLazyElementDynamic="
+    selectedConfig.tag;
+    url: selectedConfig.url;
+    module: selectedConfig.isModule
+  "
+  raised
+>
+  {{ selectedConfig.content }}
+</ax-lazy-element>
