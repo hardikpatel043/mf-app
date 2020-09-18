@@ -9,9 +9,8 @@ module.exports = {
     '@angular/platform-browser-dynamic': 'ng.platformBrowserDynamic',
     '@angular/compiler': 'ng.compiler',
     '@angular/elements': 'ng.elements',
-
-    // Uncomment and add to scripts in angular.json if needed
+    'ag-grid-community': 'agGridCommunity',
+    'ag-grid-angular': 'ag.grid.angular',
     '@angular/router': 'ng.router',
-    // '@angular/forms': 'ng.forms',
   },
 };

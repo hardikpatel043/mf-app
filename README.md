@@ -1,5 +1,9 @@
 # MfApp
 
+update ag-grid-angular.umd.js as below
+
+(global = global || self, factory((global.ag = global.ag || {}, global.ag.grid = {}), global.ng.core, global.agGrid));
+
 This project was generated using [Nx](https://nx.dev).
 
 <p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>

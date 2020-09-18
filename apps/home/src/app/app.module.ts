@@ -1,13 +1,20 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Injector, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { createCustomElement } from '@angular/elements';
+import { CUSTOM_ELEMENTS_SCHEMA, Injector, NgModule } from '@angular/core';
+
+import { AgGridModule } from 'ag-grid-angular';
 import { AppComponent } from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
 import { CardModule } from '@mf-app/card';
 import { RouterModule } from '@angular/router';
+import { createCustomElement } from '@angular/elements';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, CardModule, RouterModule.forRoot([])],
+  imports: [
+    BrowserModule,
+    CardModule,
+    RouterModule.forRoot([]),
+    AgGridModule.withComponents([]),
+  ],
   providers: [],
   entryComponents: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
