@@ -1,3 +1,31 @@
+<!-- <mat-tab-group mat-align-tabs="start">
+  <mat-tab label="First">
+    <ax-lazy-element
+      *axLazyElementDynamic="
+        dynamicConfigs[0].tag;
+        url: dynamicConfigs[0].url;
+        module: dynamicConfigs[0].isModule
+      "
+      raised
+    >
+      {{ dynamicConfigs[0].content }}
+    </ax-lazy-element></mat-tab
+  >
+  <mat-tab label="Second">
+    <ax-lazy-element
+      *axLazyElementDynamic="
+        dynamicConfigs[1].tag;
+        url: dynamicConfigs[1].url;
+        module: dynamicConfigs[1].isModule
+      "
+      raised
+    >
+      {{ dynamicConfigs[1].content }}
+    </ax-lazy-element></mat-tab
+  >
+  <mat-tab label="Third">Content 3</mat-tab>
+</mat-tab-group> -->
+
 <mat-form-field>
   <mat-label>Select Control</mat-label>
   <mat-select
@@ -10,17 +38,28 @@
   </mat-select>
 </mat-form-field>
 <h3>Selected Control is: {{ selectedItem }}</h3>
-<ng-container #vc></ng-container>
-<div *ngIf="isLoading">loading...</div>
-<ng-template #tpl>
+<div *ngIf="selectedConfig.tag == 'mf-home'">
   <ax-lazy-element
     *axLazyElementDynamic="
-      selectedConfig.tag;
-      url: selectedConfig.url;
-      module: selectedConfig.isModule
+      homeConfig.tag;
+      url: homeConfig.url;
+      module: homeConfig.isModule
     "
     raised
   >
-    {{ selectedConfig.content }}
+    {{ homeConfig.content }}
   </ax-lazy-element>
-</ng-template>
+</div>
+
+<div *ngIf="selectedConfig.tag == 'mf-aboutus'">
+  <ax-lazy-element
+    *axLazyElementDynamic="
+      aboutConfig.tag;
+      url: aboutConfig.url;
+      module: aboutConfig.isModule
+    "
+    raised
+  >
+    {{ aboutConfig.content }}
+  </ax-lazy-element>
+</div>

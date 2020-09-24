@@ -6,6 +6,7 @@ import { ContactusRoutingModule } from './contactus-routing.module';
 import { LazyElementsModule } from '@angular-extensions/elements';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [ContactusComponent],
@@ -15,6 +16,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatSelectModule,
     MatFormFieldModule,
     LazyElementsModule,
+    MatTabsModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

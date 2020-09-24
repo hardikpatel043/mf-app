@@ -1,12 +1,10 @@
 import {
   AfterViewInit,
-  ChangeDetectorRef,
   Component,
   OnInit,
   TemplateRef,
   ViewChild,
   ViewContainerRef,
-  ViewRef,
 } from '@angular/core';
 
 @Component({
@@ -24,57 +22,34 @@ export class ContactusComponent implements OnInit, AfterViewInit {
     content: 'Increment',
     actionName: 'increment',
   };
-  dynamicConfigs = [
-    {
-      tag: 'mf-aboutus',
-      url: 'aboutus/main-es2015.js',
-      isModule: false,
-      content: 'Increment',
-      actionName: 'increment',
-    },
-    {
-      tag: 'mf-home',
-      url: 'home/main-es2015.js',
-      isModule: false,
-      content: 'Increment',
-      actionName: 'increment',
-    },
-  ];
-  loadme = true;
-  @ViewChild('vc', { read: ViewContainerRef }) vc: ViewContainerRef;
-  @ViewChild('tpl', { read: TemplateRef }) tpl: TemplateRef<any>;
-  childViewRef: ViewRef;
-  isLoading = false;
-  constructor(private cdr: ChangeDetectorRef) {}
+
+  aboutConfig = {
+    tag: 'mf-aboutus',
+    url: 'aboutus/main-es2015.js',
+    isModule: false,
+    content: 'Increment',
+    actionName: 'increment',
+  };
+
+  homeConfig = {
+    tag: 'mf-home',
+    url: 'home/main-es2015.js',
+    isModule: false,
+    content: 'Increment',
+    actionName: 'increment',
+  };
+
+  constructor() {}
 
   ngOnInit(): void {}
 
-  ngAfterViewInit() {
-    this.childViewRef = this.tpl.createEmbeddedView(null);
-  }
-
-  insertChildView() {
-    this.vc.insert(this.childViewRef);
-  }
-
-  removeChildView() {
-    this.vc.detach();
-  }
+  ngAfterViewInit() {}
 
   selectionChange($event) {
     if (this.selectedItem === 'Aboutus') {
-      console.log('aboutus');
-      this.selectedConfig = this.dynamicConfigs[0];
+      this.selectedConfig = this.aboutConfig;
     } else {
-      console.log('home');
-      this.selectedConfig = this.dynamicConfigs[1];
+      this.selectedConfig = this.homeConfig;
     }
-    this.removeChildView();
-
-    this.isLoading = true;
-    setTimeout(() => {
-      this.insertChildView();
-      this.isLoading = false;
-    }, 3000);
   }
 }
