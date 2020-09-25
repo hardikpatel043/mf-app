@@ -59,7 +59,7 @@
     t.exports = ng.common;
   },
   Fqor: function (t, e) {
-    t.exports = ag.grid.angular;
+    t.exports = aggridangular;
   },
   JAnZ: function (t, e) {
     t.exports = ng.router;

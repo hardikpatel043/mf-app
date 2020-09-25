@@ -26,6 +26,16 @@
               "apps/cz-app/src/assets",
               {
                 "glob": "**/*",
+                "input": "node_modules/ag-grid-community/dist",
+                "output": "/libs"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/ag-grid-angular/bundles",
+                "output": "/libs"
+              },
+              {
+                "glob": "**/*",
                 "input": "apps/cz-app/src/home",
                 "output": "/home"
               },
@@ -49,9 +59,7 @@
               "node_modules/@angular/elements/bundles/elements.umd.js",
               "node_modules/@angular/router/bundles/router.umd.js",
               "node_modules/@angular/platform-browser/bundles/platform-browser.umd.js",
-              "node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js",
-              "node_modules/ag-grid-community/dist/ag-grid-community.js",
-              "node_modules/ag-grid-angular/bundles/ag-grid-angular.umd.js"
+              "node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js"
             ]
           },
           "configurations": {
